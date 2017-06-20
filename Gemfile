@@ -1,8 +1,12 @@
 source "https://rubygems.org"
 
 gem "sinatra"
+
 gem "puma"
 gem "slim"
+
+gem "chronic"
+gem "require_all"
 
 group :development do
   gem "better_errors"
@@ -13,8 +17,8 @@ group :development, :test do
 end
 
 group :test do
-  gem "fuubar"
-  gem "rspec"
   gem "capybara"
+  gem "fuubar"
   gem "poltergeist"
+  gem "rspec"
 end
