@@ -10,6 +10,7 @@ require_all "models"
 
 configure do
   set :server, :puma
+  set :json_encoder, :to_json
 end
 
 configure :development do

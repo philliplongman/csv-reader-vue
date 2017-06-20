@@ -3,6 +3,9 @@ get "/" do
 end
 
 post "/" do
-  @upload = Upload.new(params["file"]["tempfile"])
-  json @upload.data
+  filename = params["file"]["filename"]
+  file = params["file"]["tempfile"]
+  upload = Upload.new(filename, file)
+
+  json upload
 end
