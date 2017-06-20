@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "sinatra"
 gem "puma"
+gem "slim"
 
 group :development do
   gem "better_errors"
