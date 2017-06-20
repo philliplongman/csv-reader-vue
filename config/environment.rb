@@ -4,6 +4,8 @@ require "bundler"
 Bundler.require(:default)
 Bundler.require(:default, Sinatra::Base.environment)
 
+require "sinatra/json"
+
 require_all "models"
 
 configure do

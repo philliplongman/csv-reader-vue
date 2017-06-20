@@ -1,18 +1,25 @@
 class Upload
 
-  attr_reader :data
+  attr_reader :file
 
-  def initialize(string)
-    @data = parse_file(string).data
+  def initialize(tempfile)
+    @file = file_by_delimiter(File.read tempfile)
+  end
+
+  def data
+    @data ||= file.data
   end
 
   private
 
-  def parse_file(string)
+  def file_by_delimiter(string)
     case string
-    when /,/  then CommaSeparatedFile.new(string)
-    when /\|/ then PipeSeparatedFile.new(string)
-    else           SpaceSeparatedFile.new(string)
+    when /,/
+      CommaSeparatedFile.new(string)
+    when /\|/
+      PipeSeparatedFile.new(string)
+    else
+      SpaceSeparatedFile.new(string)
     end
   end
 
