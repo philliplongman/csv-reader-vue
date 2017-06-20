@@ -16,9 +16,6 @@ feature "user views csv -" do
 
     attach_file "Import a file", spaces
     expect(page).to have_content first_value_of(spaces)
-
-    attach_file "Import a file", spaces
-    expect(page).to have_content "No data"
   end
 
   scenario "user sorts the table" do
