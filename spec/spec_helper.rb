@@ -1,14 +1,17 @@
-ENV['RACK_ENV'] = 'test'
+ENV["RACK_ENV"] = "test"
 
 require "./config/environment"
-require 'capybara/rspec'
-require 'capybara/poltergeist'
+require "./spec/support/features_helper"
 
-require File.expand_path '../../app.rb', __FILE__
+require "capybara/rspec"
+require "capybara/poltergeist"
+
+require File.expand_path "../../app.rb", __FILE__
 
 module RSpecMixin
   include Rack::Test::Methods
   include Capybara::DSL
+  include FeaturesHelper
 
   def app() Sinatra::Application end
 end
