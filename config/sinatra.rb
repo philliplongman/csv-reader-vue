@@ -1,1 +1,0 @@
-configure { set :server, :puma }

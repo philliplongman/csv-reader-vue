@@ -1,1 +1,3 @@
-require_relative "config/sinatra"
+get "/" do
+  "Hello world!"
+end

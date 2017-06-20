@@ -1,7 +1,4 @@
-require 'rubygems'
-require 'bundler'
+require "./config/environment"
 
-Bundler.require
-
-require './app'
+require "./app"
 run Sinatra::Application
