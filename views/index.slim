@@ -2,7 +2,7 @@ doctype html
 html
   head
     title CSV Reader
-    script src="/javascripts/app.js"
+    script src="//code.jquery.com/jquery-3.2.1.min.js"
 
   body
   
@@ -10,18 +10,22 @@ html
       .count
         span#count 0 people
       .form
-        form#upload-form
-          label for="file" Import a file
-          input#file type="file"
+        form#upload method="post" enctype="multipart/form-data"
+          label for="upload-file" Import a file
+          input#upload-file name="file" type="file" onchange="submitFile(this.files)"
 
     .row
       table
         thead
-          th.last-name Last name
-          th.first-name First name
-          th.middle-initial Middle initial
-          th.pet Pet
-          th.birthday Birthday
-          th.favorite-color Favorite color
-        tr
-          td No data
+          tr
+            th.last-name Last name
+            th.first-name First name
+            th.middle-initial Middle initial
+            th.pet Pet
+            th.birthday Birthday
+            th.favorite-color Favorite color
+        tbody
+          tr
+            td No data
+
+  script src="/javascripts/app.js"
