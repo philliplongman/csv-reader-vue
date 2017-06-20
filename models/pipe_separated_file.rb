@@ -10,7 +10,7 @@ class PipeSeparatedFile < SeparatedFile
       middle_initial: values[2],
       pet:            values[3],
       color:          values[4],
-      birthday:       Chronic.parse(values[5])
+      birthday:       values[5]
     }
   end
 
