@@ -6,28 +6,36 @@ html
     script src="vendor/javascripts/jquery-3.2.1.min.js"
     script src="vendor/javascripts/jquery.metadata.js"
     script src="vendor/javascripts/jquery.tablesorter.min.js"
-    script src="vendor/javascripts/underscore-min.js"
-    script src="javascripts/app.js"
+    script src="vendor/javascripts/vue.min.js"
+    script src="vendor/javascripts/vue-resource.min.js"
 
   body
     main
-    
-    .count 0 people
-    
-    form method="post" enctype="multipart/form-data"
-      label for="file" Import a file
-      .inputs
-        label.filename for="file"
-        label.button for="file" Browse
-        input#file name="file" type="file" 
+      .count = "{{ persons.length }} people"
+      
+      form enctype="multipart/form-data"
+        label for="file" Import a file
+        .inputs
+          label.filename for="file" = "{{ filename }}"
+          label.button for="file" Browse
+          input#file name="file" type="file" @change="changeFile"
+      
+      table.tablesorter ref="table"
+        thead
+          tr
+            th: span Last name
+            th: span First name
+            th: span Middle initial
+            th: span Pet
+            th: span Birthday
+            th: span Favorite color
+        tbody
+          tr v-for="person in persons"
+            th = "{{ person.last_name }}"
+            th = "{{ person.first_name }}"
+            th = "{{ person.middle_initial }}"
+            th :class="person.pet | downcase" = "{{ person.pet }}"
+            th = "{{ person.birthday }}"
+            th = "{{ person.color }}"
 
-    table.tablesorter
-      thead
-        tr
-          th: span Last name
-          th: span First name
-          th: span Middle initial
-          th: span Pet
-          th: span Birthday
-          th: span Favorite color
-      tbody
+  script src="javascripts/app.js"
