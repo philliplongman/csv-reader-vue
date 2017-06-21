@@ -1,18 +1,18 @@
 CSVReader = function () {
-  this.$input = $("#file")
-  this.$table = $("table")
+  this.$input     = $("#file")
+  this.$table     = $("table")
   this.$tableBody = $("tbody")
 
   var self = this
 
   this.submitFile = function () {
     $.ajax({
-      method: "POST",
-      url: "/",
-      data: this.fileData(),
-      processData: false,
-      contentType: false,
-      success: this.updatePage
+      method:       "POST",
+      url:          "/",
+      data:         this.fileData(),
+      processData:  false,
+      contentType:  false,
+      success:      this.updatePage
     })
   }
 
@@ -54,13 +54,14 @@ CSVReader = function () {
   }
 
   this.updateTableSort = function functionName() {
-    // update tablesorter with new rows
+    // update tablesorter data with the new rows
     this.$table.trigger("update")
-    // the update function has a delay of 1 ms, so a timeout
-    // of 2 ms must be set here to prevent a conflict
-    var table = this.$table
-    var sort = [[0, 0]]
-    setTimeout(function(){ self.$table.trigger("sorton", [sort]) }, 2)
+    // the update function has a delay of 1 ms, so a timeout of 2 ms
+    // must be set before triggering a new sort to prevent a conflict
+    setTimeout( function(){
+      var sort = [[0, 0]]
+      self.$table.trigger("sorton", [sort])
+    }, 2)
   }
 
   this.updateCount = function (count) {

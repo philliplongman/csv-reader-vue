@@ -22,16 +22,18 @@ feature "user views csv -" do
   end
 
   scenario "user sorts the table" do
-    visit "/"
-    attach_file "Import a file", comma , make_visible: true
-
     last_names = first_column_of comma
 
-    # start alphabetical order
+    visit "/"
+
+    # start in alphabetical order
+    attach_file "Import a file", comma , make_visible: true
+    wait_for_ajax
+    expect(first("table td")).to have_content last_names.sort.first
+
     click_header "Last name"
     expect(first_table_cell).to have_content last_names.sort.reverse.first
 
-    # reverse alphabetical order
     click_header "Last name"
     expect(first_table_cell).to have_content last_names.sort.first
   end

@@ -7,6 +7,7 @@ html
     script src="vendor/javascripts/jquery.metadata.js"
     script src="vendor/javascripts/jquery.tablesorter.min.js"
     script src="vendor/javascripts/underscore-min.js"
+    script src="javascripts/app.js"
 
   body
     main
@@ -19,7 +20,6 @@ html
         label.filename for="file"
         label.button for="file" Browse
         input#file name="file" type="file" 
-        //onchange="submitFile(this.files)"
 
     table.tablesorter
       thead
@@ -31,5 +31,3 @@ html
           th: span Birthday
           th: span Favorite color
       tbody
-
-  script src="javascripts/app.js"

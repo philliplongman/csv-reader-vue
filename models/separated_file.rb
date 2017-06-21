@@ -12,8 +12,4 @@ class SeparatedFile
 
   attr_reader :lines
 
-  def line_values(line)
-    nil
-  end
-
 end
