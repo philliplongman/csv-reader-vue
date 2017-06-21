@@ -6,7 +6,7 @@ I used RSpec, Capybara, and Poltergeist for testing. I wrote a basic feature tes
 
 ## Lessons
 
-Both Sinatra and AJAX may have been a little overambitious for such a small challenge. I always forget that Sinatra is going to be fewer files but a lot more effort than Rails. Submitting and returning the data asynchronously also made extra work and added nuances to the table sorting that had to be accounted for. It made it harder to find a table sorting library—and the one I chose has a bug that I struggled with.
+I think it turned out well, but both Sinatra and AJAX may have been a little overambitious for such a small challenge. I always forget that Sinatra is going to be fewer files but a lot more effort than Rails. Submitting and returning the data asynchronously also made extra work and added nuances to the table sorting that had to be accounted for. It made it harder to find a table sorting library—and the one I chose has a bug that I struggled with.
 
 If I were to work on this for another day, I would try to implement Vue.js, which I think would work really well here. But since this already took so long, I just wrapped up the JavaScript in the class pattern I'm most used to writing.
 
