@@ -1,0 +1,11 @@
+td.both {
+  background-image: url("/images/both.png");
+}
+
+td.cat {
+  background-image: url("/images/cat.png");
+}
+
+td.dog {
+  background-image: url("/images/dog.png");
+}

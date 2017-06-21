@@ -17,7 +17,7 @@ class Person
       middle_initial: middle_initial,
       last_name:      last_name,
       pet:            pet,
-      birthday:       birthday,
+      birthday:       birthday.strftime("%-m/%-d/%Y"),
       color:          color
     }
   end

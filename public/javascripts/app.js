@@ -25,20 +25,19 @@ function updateTable(data) {
     var $newRow = $("<tr>")
 
     $newRow.append("<td>" + this.last_name + "</td>")
-           .append("<td>" + this.first_name + "</td>")
-           .append("<td>" + this.middle_initial + "</td>")
-           .append("<td>" + this.pet + "</td>")
-           .append("<td>" + this.birthday + "</td>")
-           .append("<td>" + this.color + "</td>")
+     .append("<td>" + this.first_name + "</td>")
+     .append("<td>" + this.middle_initial + "</td>")
+     .append("<td class='" + this.pet.toLowerCase() + "'>" + this.pet + "</td>")
+     .append("<td>" + this.birthday + "</td>")
+     .append("<td>" + this.color + "</td>")
 
     $body.append($newRow)
   })
 
   $table.trigger("update")
-  // the update function sets a timeout of 1 ms, 
+  // the update function sets a timeout of 1 ms,
   // so a timeout of 2 ms must be set here to prevent a conflict
   setTimeout(function(){ $table.trigger("sorton", [[[0, 0]]]) }, 2)
 }
-
 
 $(document).ready(function(){ $("table").tablesorter() })
