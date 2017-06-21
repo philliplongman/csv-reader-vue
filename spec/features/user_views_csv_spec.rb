@@ -25,11 +25,11 @@ feature "user views csv -" do
     last_names = first_column_of commas
 
     # start alphabetical order
-    click_link "Last name"
+    click_header "Last name"
     expect(first_table_cell).to have_content last_names.sort.reverse.first
 
     # reverse alphabetical order
-    click_link "Last name"
+    click_header "Last name"
     expect(first_table_cell).to have_content last_names.sort.first
   end
 

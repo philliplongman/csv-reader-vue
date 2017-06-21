@@ -10,7 +10,11 @@ module FeaturesHelper
   end
 
   def first_table_cell
-    first("#people td")
+    first("table td")
+  end
+
+  def click_header(text)
+    find("th", text: text).click
   end
 
 end

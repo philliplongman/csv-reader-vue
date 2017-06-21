@@ -2,7 +2,11 @@ doctype html
 html
   head
     title CSV Reader
+    link rel="stylesheet" href="stylesheets/app.css"
+    / link rel="stylesheet" href="vendor/stylesheets/sortable-theme-minimal.css"
     script src="vendor/javascripts/jquery-3.2.1.min.js"
+    script src="vendor/javascripts/jquery.metadata.js"
+    script src="vendor/javascripts/jquery.tablesorter.min.js"
 
   body
   
@@ -15,7 +19,7 @@ html
           input#upload-file name="file" type="file" onchange="submitFile(this.files)"
 
     .row
-      table
+      table.tablesorter
         thead
           tr
             th.last-name Last name
@@ -26,4 +30,4 @@ html
             th.favorite-color Favorite color
         tbody
 
-  script src="javascripts/app.js"
+    script src="javascripts/app.js"

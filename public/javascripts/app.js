@@ -16,7 +16,8 @@ function submitFile() {
 }
 
 function updateTable(data) {
-  var $body = $("table tbody")
+  var $table = $("table")
+  var $body = $("tbody", $table)
 
   $body.empty()
 
@@ -24,12 +25,20 @@ function updateTable(data) {
     var $newRow = $("<tr>")
 
     $newRow.append("<td>" + this.last_name + "</td>")
-    $newRow.append("<td>" + this.first_name + "</td>")
-    $newRow.append("<td>" + this.middle_initial + "</td>")
-    $newRow.append("<td>" + this.pet + "</td>")
-    $newRow.append("<td>" + this.birthday + "</td>")
-    $newRow.append("<td>" + this.color + "</td>")
+           .append("<td>" + this.first_name + "</td>")
+           .append("<td>" + this.middle_initial + "</td>")
+           .append("<td>" + this.pet + "</td>")
+           .append("<td>" + this.birthday + "</td>")
+           .append("<td>" + this.color + "</td>")
 
     $body.append($newRow)
   })
+
+  $table.trigger("update")
+  // the update function sets a timeout of 1 ms, 
+  // so a timeout of 2 ms must be set here to prevent a conflict
+  setTimeout(function(){ $table.trigger("sorton", [[[0, 0]]]) }, 2)
 }
+
+
+$(document).ready(function(){ $("table").tablesorter() })
