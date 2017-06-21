@@ -1,49 +1,83 @@
-function submitFile() {
-  var input = $("#file")[0]
-  var file = input.files[0]
+CSVReader = function () {
+  this.$input = $("#file")
+  this.$table = $("table")
+  this.$tableBody = $("tbody")
 
-  var data = new FormData()
-  data.append("file", file, file.name)
+  var self = this
 
-  $.ajax({
-    method: "POST",
-    url: "/",
-    data: data,
-    processData: false,
-    contentType: false,
-    success: updateTable
-  })
-}
+  this.submitFile = function () {
+    $.ajax({
+      method: "POST",
+      url: "/",
+      data: this.fileData(),
+      processData: false,
+      contentType: false,
+      success: this.updatePage
+    })
+  }
 
-function updateTable(data) {
-  var $table = $("table")
-  var $body = $("tbody", $table)
-  var $filename = $(".filename")
-  var $count = $(".count")
+  this.fileData = function () {
+    var file = this.$input[0].files[0]
+    var data = new FormData()
+    data.append("file", file, file.name)
 
-  $body.empty()
+    return data
+  }
 
-  $.each(data.people, function(){
+  this.updatePage = function (data) {
+    this.updateTable(data.people)
+    this.updateCount(data.people.length)
+    this.updateForm(data.filename)
+  }
+
+  this.updateTable = function (people) {
+    this.$tableBody.empty()
+
+    $.each(people, function(){
+      self.$tableBody.append( self.newRowForPerson(this) )
+    })
+
+    this.updateTableSort()
+  }
+
+  this.newRowForPerson = function (person) {
     var $newRow = $("<tr>")
 
-    $newRow.append("<td>" + this.last_name + "</td>")
-     .append("<td>" + this.first_name + "</td>")
-     .append("<td>" + this.middle_initial + "</td>")
-     .append("<td class='" + this.pet.toLowerCase() + "'>" + this.pet + "</td>")
-     .append("<td>" + this.birthday + "</td>")
-     .append("<td>" + this.color + "</td>")
+    $newRow.append("<td>" + person.last_name + "</td>")
+      .append("<td>" + person.first_name + "</td>")
+      .append("<td>" + person.middle_initial + "</td>")
+      .append("<td class='" + person.pet.toLowerCase() + "'>" + person.pet + "</td>")
+      .append("<td>" + person.birthday + "</td>")
+      .append("<td>" + person.color + "</td>")
 
-    $body.append($newRow)
-  })
+    return $newRow
+  }
 
-  $table.trigger("update")
-  // the update function sets a timeout of 1 ms,
-  // so a timeout of 2 ms must be set here to prevent a conflict
-  setTimeout(function(){ $table.trigger("sorton", [[[0, 0]]]) }, 2)
+  this.updateTableSort = function functionName() {
+    // update tablesorter with new rows
+    this.$table.trigger("update")
+    // the update function has a delay of 1 ms, so a timeout
+    // of 2 ms must be set here to prevent a conflict
+    var table = this.$table
+    var sort = [[0, 0]]
+    setTimeout(function(){ self.$table.trigger("sorton", [sort]) }, 2)
+  }
 
-  $count.text( data.people.length + " people")
+  this.updateCount = function (count) {
+    $(".count").text( count + " people")
+  }
 
-  $filename.text(data.filename)
+  this.updateForm = function (filename) {
+    $(".filename").text(filename)
+  }
+
+  _.bindAll(this, "fileData", "newRowForPerson", "submitFile", "updateCount",
+    "updateForm", "updatePage", "updateTable", "updateTableSort")
+
+  this.$input.change(this.submitFile)
+  this.$table.tablesorter()
 }
 
-$(document).ready(function(){ $("table").tablesorter() })
+$(document).ready( function(){
+  new CSVReader
+})
