@@ -8,25 +8,26 @@ html
     script src="vendor/javascripts/jquery.tablesorter.min.js"
 
   body
-  
-    .row
-      .count
-        span 0 people
-      .form
-        form#upload method="post" enctype="multipart/form-data"
-          label for="upload-file" Import a file
-          input#upload-file name="file" type="file" onchange="submitFile(this.files)"
+    main
+    
+    .count
+      span 0 people
+    .form
+      form method="post" enctype="multipart/form-data"
+        label Import a file
+        input#filename
+        label for="file" Browse
+        input#file name="file" type="file" onchange="submitFile(this.files)"
 
-    .row
-      table.tablesorter
-        thead
-          tr
-            th.last-name Last name
-            th.first-name First name
-            th.middle-initial Middle initial
-            th.pet Pet
-            th.birthday Birthday
-            th.favorite-color Favorite color
-        tbody
+    table.tablesorter
+      thead
+        tr
+          th: span Last name
+          th: span First name
+          th: span Middle initial
+          th: span Pet
+          th: span Birthday
+          th: span Favorite color
+      tbody
 
-    script src="javascripts/app.js"
+  script src="javascripts/app.js"

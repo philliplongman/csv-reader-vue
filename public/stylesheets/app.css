@@ -1,26 +1,109 @@
-th.header {
-  background-position: center right;
-  background-repeat: no-repeat;
-  cursor: pointer;
+/* fonts and layout */
+
+body {
+  color: #a7a9ac;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  padding: 50px 100px;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+}
+
+table {
+  margin-top: 30px;
+  table-layout: fixed;
+  width: 100%;
+}
+
+td {
+  color: #363945;
+}
+
+td,
+tr {
+  height: 50px;
+  border-bottom: 1px solid #e6e7e8;
+}
+
+th {
+  font-weight: normal;
+  text-align: left;
+}
+
+.count {
+  font-size: 25px;
+  color: #363945;
+}
+
+
+/* upload form */
+
+input {
+  width: 110px;
+}
+
+label {
   padding-right: 20px;
 }
 
-th.headerSortDown {
+/* sortable header effects */
+
+.header {
+  cursor: pointer;
+}
+
+.header span::after {
+  content: "";
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 15px;
+  padding-right: 20px;
+  padding-top: 2px;
+}
+
+.headerSortDown,
+.headerSortUp {
+  color: #54bbff;
+  font-weight: bold;
+}
+
+.headerSortDown span::after {
   background-image: url("/images/down.png");
 }
 
-th.headerSortUp {
+.headerSortUp span::after {
   background-image: url("/images/up.png");
 }
 
-td.both {
+
+/* pets */
+
+.both,
+.cat,
+.dog {
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding-left: 40px;
+}
+
+.both {
   background-image: url("/images/both.png");
 }
 
-td.cat {
+.cat {
   background-image: url("/images/cat.png");
 }
 
-td.dog {
+.dog {
   background-image: url("/images/dog.png");
+}
+
+.none {
+  color: #a7a9ac;
+  font-style: italic;
 }
