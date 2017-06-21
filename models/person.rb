@@ -2,7 +2,7 @@ class Person
 
   attr_reader :birthday, :color, :first_name, :last_name, :middle_initial, :pet
 
-  def initialize(**options)
+  def initialize(options)
     @first_name     = options[:first_name] || ""
     @middle_initial = options[:middle_initial] || ""
     @last_name      = options[:last_name] || ""

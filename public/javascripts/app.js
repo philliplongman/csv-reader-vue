@@ -38,6 +38,8 @@ function updateTable(data) {
   // the update function sets a timeout of 1 ms,
   // so a timeout of 2 ms must be set here to prevent a conflict
   setTimeout(function(){ $table.trigger("sorton", [[[0, 0]]]) }, 2)
+
+  $(".count span").text( data.people.length + " people")
 }
 
 $(document).ready(function(){ $("table").tablesorter() })
