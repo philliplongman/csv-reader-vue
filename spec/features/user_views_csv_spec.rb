@@ -1,28 +1,31 @@
 feature "user views csv -" do
 
-  let(:commas) { "spec/fixtures/comma.txt" }
-  let(:pipes)  { "spec/fixtures/pipe.txt"  }
-  let(:spaces) { "spec/fixtures/space.txt" }
-  let(:empty)  { "spec/fixtures/empty.txt" }
+  let(:comma) { "spec/fixtures/comma.txt" }
+  let(:pipe)  { "spec/fixtures/pipe.txt"  }
+  let(:space) { "spec/fixtures/space.txt" }
 
   scenario "user views csv files with different seperators" do
     visit "/"
 
-    attach_file "Import a file", commas
-    expect(page).to have_content first_value_of(commas)
+    attach_file "Import a file", comma , make_visible: true
+    expect(page).to have_content first_value_of(comma)
+    expect(page).to have_content "3 people"
+    expect(page).to have_content "comma.txt"
 
-    attach_file "Import a file", pipes
-    expect(page).to have_content first_value_of(pipes)
+    attach_file "Import a file", pipe , make_visible: true
+    expect(page).to have_content first_value_of(pipe)
+    expect(page).to have_content "pipe.txt"
 
-    attach_file "Import a file", spaces
-    expect(page).to have_content first_value_of(spaces)
+    attach_file "Import a file", space , make_visible: true
+    expect(page).to have_content first_value_of(space)
+    expect(page).to have_content "space.txt"
   end
 
   scenario "user sorts the table" do
     visit "/"
-    attach_file "Import a file", commas
+    attach_file "Import a file", comma , make_visible: true
 
-    last_names = first_column_of commas
+    last_names = first_column_of comma
 
     # start alphabetical order
     click_header "Last name"
