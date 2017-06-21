@@ -10,13 +10,13 @@ html
   body
     main
     
-    .count
-      span 0 people
-    .form
-      form method="post" enctype="multipart/form-data"
-        label Import a file
-        input#filename
-        label for="file" Browse
+    .count 0 people
+    
+    form method="post" enctype="multipart/form-data"
+      label for="file" Import a file
+      .inputs
+        label.filename for="file"
+        label.button for="file" Browse
         input#file name="file" type="file" onchange="submitFile(this.files)"
 
     table.tablesorter

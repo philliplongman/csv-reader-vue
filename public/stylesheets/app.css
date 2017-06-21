@@ -8,13 +8,17 @@ body {
   padding: 50px 100px;
 }
 
+form {
+  float: right;
+}
+
 main {
   width: 100%;
   max-width: 1200px;
 }
 
 table {
-  margin-top: 30px;
+  margin-top: 80px;
   table-layout: fixed;
   width: 100%;
 }
@@ -24,7 +28,7 @@ td {
 }
 
 td,
-tr {
+th {
   height: 50px;
   border-bottom: 1px solid #e6e7e8;
 }
@@ -35,20 +39,52 @@ th {
 }
 
 .count {
-  font-size: 25px;
   color: #363945;
+  float: left;
+  font-size: 25px;
+  padding-top: 6px;
 }
+
 
 
 /* upload form */
 
-input {
+.button {
+  border: 1px solid #54bbff;
+  border-radius: 0 4px 4px 0;
+  background-color: #54bbff;
+  color: #ffffff;
+  display: inline-block;
+  height: 30px;
+  padding-top: 10px;
+  text-align: center;
+  vertical-align: middle;
   width: 110px;
 }
 
-label {
-  padding-right: 20px;
+.inputs {
+  display: inline-block;
+  margin-left: 20px;
 }
+
+.filename {
+  border-color: #e6e7e8;
+  border-radius: 4px 0 0 4px;
+  border-style: solid;
+  border-width: 1px 0 1px 1px;
+  display: inline-block;
+  font-size: 13px;
+  height: 29px;
+  vertical-align: middle;
+  padding-left: 14px;
+  padding-top: 11px;
+  width: 306px;
+}
+
+#file {
+  display: none;
+}
+
 
 /* sortable header effects */
 

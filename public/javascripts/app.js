@@ -1,5 +1,5 @@
 function submitFile() {
-  var input = $("#upload-file")[0]
+  var input = $("#file")[0]
   var file = input.files[0]
 
   var data = new FormData()
@@ -18,6 +18,8 @@ function submitFile() {
 function updateTable(data) {
   var $table = $("table")
   var $body = $("tbody", $table)
+  var $filename = $(".filename")
+  var $count = $(".count")
 
   $body.empty()
 
@@ -39,7 +41,9 @@ function updateTable(data) {
   // so a timeout of 2 ms must be set here to prevent a conflict
   setTimeout(function(){ $table.trigger("sorton", [[[0, 0]]]) }, 2)
 
-  $(".count span").text( data.people.length + " people")
+  $count.text( data.people.length + " people")
+
+  $filename.text(data.filename)
 }
 
 $(document).ready(function(){ $("table").tablesorter() })
