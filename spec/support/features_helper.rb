@@ -18,7 +18,7 @@ module FeaturesHelper
   end
 
   def wait_for_ajax
-    Timeout.timeout(Capybara.default_wait_time) do
+    Timeout.timeout(Capybara.Capybara.default_max_wait_time) do
       active = page.evaluate_script('jQuery.active')
       active = page.evaluate_script('jQuery.active') until active == 0
     end
