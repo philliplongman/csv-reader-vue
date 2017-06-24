@@ -1,0 +1,28 @@
+{
+  "name": "fullstack-challenge-ruby",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./public/javascripts/index.js",
+  "scripts": {
+    "build": "webpack --display-error-details public/javascripts/vendor.js public/javascripts/vendor.bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philliplongman/fullstack-challenge-ruby.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philliplongman/fullstack-challenge-ruby/issues"
+  },
+  "homepage": "https://github.com/philliplongman/fullstack-challenge-ruby#readme",
+  "devDependencies": {
+    "webpack": "^3.0.0"
+  },
+  "dependencies": {
+    "vue": "^2.3.4",
+    "vue-resource": "^1.3.4",
+    "vue-tables-2": "^0.6.29"
+  },
+  "private": true
+}

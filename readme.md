@@ -12,6 +12,7 @@ I used RSpec, Capybara, and Poltergeist for some basic testing, but using Vue.js
 To run:
 ```
 bundle install
+npm run build
 puma
 ```
 

@@ -3,5 +3,9 @@
 /.cache
 .DS_Store
 
+/node_modules
+
+vendor.bundle.js
+
 instructions.md
 mockup.png
