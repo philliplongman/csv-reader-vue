@@ -1,8 +1,8 @@
 # CSV Reader
 
-A technical challenge I took too seriously, with asynchronous Vue.js on the front end and Sinatra on the back.
+A full-stack technical challenge I took too seriously, with asynchronous Vue.js on the front end and Sinatra on the back.
 
-#### Requirement summary
+### Requirement summary:
 
 * Write a web app that will accept CSV files in three slightly different formats and display them as a sortable table.
 
