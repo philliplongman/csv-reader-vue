@@ -5,7 +5,8 @@ const config = {
     alias: {
       "vue$": "vue/dist/vue.esm.js"
     }
-  }
+  },
+  watch: true
 };
 
 module.exports = config;

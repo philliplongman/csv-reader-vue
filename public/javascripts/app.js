@@ -2,6 +2,7 @@ const TableOptions = {
   columns: [
     "last_name", "first_name", "middle_initial", "pet", "birthday", "color"
   ],
+  dateColumns: ["birthday"],
   options: {
     filterable: false,
     perPage: 100,
@@ -11,7 +12,7 @@ const TableOptions = {
       down: "active descending",
       up:   "active ascending"
     },
-    texts: { noResults:'No records' }
+    texts: { noResults: "No records" }
   }
 }
 
@@ -51,6 +52,9 @@ new Vue({
     updateData: function (response) {
       this.filename = response.body.filename
       this.persons = response.body.people
+      this.persons.forEach( function (person) {
+        person["birthday"] = moment(person["birthday"])
+      })
     },
   },
 })
