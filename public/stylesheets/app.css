@@ -116,28 +116,27 @@ th {
 
 /* pets */
 
-.both,
-.cat,
-.dog {
+td.pet {
   background-position: center left;
   background-repeat: no-repeat;
   background-size: 30px;
   padding-left: 40px;
 }
 
-.both {
+tr.both td.pet{
   background-image: url("/images/both.png");
 }
 
-.cat {
+tr.cat td.pet{
   background-image: url("/images/cat.png");
 }
 
-.dog {
+tr.dog td.pet{
   background-image: url("/images/dog.png");
 }
 
-.none {
+tr.none td.pet{
+  padding-left: inherit;
   color: #a7a9ac;
   font-style: italic;
 }

@@ -2,10 +2,11 @@ const TableOptions = {
   columns: [
     "last_name", "first_name", "middle_initial", "pet", "birthday", "color"
   ],
-  dateColumns: ["birthday"],
   options: {
+    columnsClasses: { pet: "pet" },
     filterable: false,
     perPage: 100,
+    rowClassCallback: row => { return row.pet.toLowerCase() },
     skin: "",
     sortIcon: {
       base: "",

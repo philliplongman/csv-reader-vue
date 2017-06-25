@@ -14,25 +14,7 @@ html
           label.filename for="file" = "{{ filename }}"
           label.button for="file" Browse
           input#file name="file" type="file" @change="changeFile"
-      
-      / table ref="table"
-      /   thead
-      /     tr
-      /       th: span Last name
-      /       th: span First name
-      /       th: span Middle initial
-      /       th: span Pet
-      /       th: span Birthday
-      /       th: span Favorite color
-      /   tbody
-      /     tr v-for="person in persons"
-      /       th = "{{ person.last_name }}"
-      /       th = "{{ person.first_name }}"
-      /       th = "{{ person.middle_initial }}"
-      /       th :class="person.pet | downcase" = "{{ person.pet }}"
-      /       th = "{{ person.birthday }}"
-      /       th = "{{ person.color }}"
-      
+            
       v-client-table :data="persons" :columns="tableColumns" :options="tableOptions"
       
     script src="javascripts/vendor.bundle.js"
