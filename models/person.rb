@@ -2,13 +2,13 @@ class Person
 
   attr_reader :birthday, :color, :first_name, :last_name, :middle_initial, :pet
 
-  def initialize(options)
-    @first_name     = options[:first_name] || ""
-    @middle_initial = options[:middle_initial] || ""
-    @last_name      = options[:last_name] || ""
+  def initialize(options={})
+    @first_name     = options[:first_name]
+    @middle_initial = options[:middle_initial]
+    @last_name      = options[:last_name]
     @pet            = parse_pet(options[:pet]) || "None"
-    @birthday       = Chronic.parse(options[:birthday]) || ""
-    @color          = options[:color] || ""
+    @birthday       = Chronic.parse(options[:birthday])
+    @color          = options[:color]
   end
 
   def to_h
@@ -17,7 +17,7 @@ class Person
       middle_initial: middle_initial,
       last_name:      last_name,
       pet:            pet,
-      birthday:       birthday.strftime("%Y-%m-%d"),
+      birthday:       birthday_to_string,
       color:          color
     }
   end
@@ -30,6 +30,10 @@ class Person
     when "C", "Cat"  then "Cat"
     when "D", "Dog"  then "Dog"
     end
+  end
+
+  def birthday_to_string
+    birthday.strftime("%Y-%m-%d") if birthday
   end
 
 end

@@ -11,12 +11,14 @@ require File.expand_path "../../app.rb", __FILE__
 module RSpecMixin
   include Rack::Test::Methods
   include Capybara::DSL
-  include FeaturesHelper
 
   def app() Sinatra::Application end
 end
 
-RSpec.configure { |c| c.include RSpecMixin }
+RSpec.configure do |c|
+  c.include RSpecMixin
+  c.include FeaturesHelper, type: :feature
+end
 
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, phantomjs_logger: Tempfile.new("shutup"))

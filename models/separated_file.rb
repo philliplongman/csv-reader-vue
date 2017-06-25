@@ -5,7 +5,7 @@ class SeparatedFile
   end
 
   def data
-    lines.map { |e| Person.new line_values(e) }
+    @data ||= lines.map { |e| Person.new line_values(e) }
   end
 
   private
