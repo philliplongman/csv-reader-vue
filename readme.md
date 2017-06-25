@@ -4,11 +4,12 @@ A technical challenge I took too seriously.
 
 ### Requirement summary
 
-Write a web app that will read CSV files in three slightly different formats (provided below) and display them in a sortable table.
+Write a web app that will upload CSV files in three slightly different formats and display them as a sortable table.
 
-<a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/comma.txt" download>Comma separated file</a></br>
-<a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/pipe.txt" download>Pipe separated file</a></br>
-<a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/space.txt" download>Space separated file</a>
+Test files (right click then select, "Save link as")</br>
+<a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/comma.txt">Comma separated file</a></br>
+<a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/pipe.txt">Pipe separated file</a></br>
+<a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/space.txt">Space separated file</a>
 
 ### Design decisions
 
