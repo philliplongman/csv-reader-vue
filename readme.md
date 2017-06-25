@@ -15,9 +15,9 @@ Test files (right click then select, "Save link as"):
 
 ## Design decisions
 
-Since the project was so simple and didn't call for any persistence, I felt like it was a great case for Sinatra. I thought it would be fun to submit the files asynchronously and return data via JSON for a single page app, using Vue.js on the front end.
+Since the project was so simple and didn't call for any persistence, I felt like it was a great case for Sinatra. I thought it would be fun to submit the files asynchronously and return data via JSON for a single-page app, using Vue.js on the front end.
 
-I used RSpec, Capybara, and Poltergeist for some basic testing. PhantomJS couldn't handle Vue, so I used Webpack and Babel to transpile so the tests would pass.
+I used RSpec, Capybara, and Poltergeist for some basic testing. PhantomJS couldn't handle Vue, so I used Webpack and Babel to transpile down so the tests would pass.
 
 ## Project info
 
