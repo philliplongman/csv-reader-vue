@@ -28,7 +28,7 @@ feature "user views csv -" do
 
     # start in alphabetical order
     attach_file "Import a file", comma , make_visible: true
-    wait_for_ajax
+
     expect(first("table td")).to have_content last_names.sort.first
 
     click_header "Last name"

@@ -18,6 +18,10 @@ end
 
 RSpec.configure { |c| c.include RSpecMixin }
 
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, phantomjs_logger: Tempfile.new("shutup"))
+end
+
 Capybara.configure do |config|
   config.default_driver = :poltergeist
   config.app = Sinatra::Application
