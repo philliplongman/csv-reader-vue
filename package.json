@@ -4,7 +4,7 @@
   "description": "",
   "main": "./public/javascripts/index.js",
   "scripts": {
-    "build": "webpack --display-error-details public/javascripts/vendor.js public/javascripts/vendor.bundle.js"
+    "build": "webpack --display-error-details public/javascripts/app.js public/javascripts/app.bundle.js"
   },
   "repository": {
     "type": "git",

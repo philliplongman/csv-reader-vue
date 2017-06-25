@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require("path")
 
 const config = {
   resolve: {
@@ -7,6 +7,6 @@ const config = {
     }
   },
   watch: true
-};
+}
 
-module.exports = config;
+module.exports = config

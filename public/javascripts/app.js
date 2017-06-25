@@ -1,4 +1,13 @@
-const TableOptions = {
+import Vue from "vue"
+import VueResource from "vue-resource"
+import {ClientTable, Event} from 'vue-tables-2'
+import moment from "moment"
+
+Vue.use(VueResource)
+Vue.use(ClientTable)
+
+
+let tableOptions = {
   columns: [
     "last_name", "first_name", "middle_initial", "pet", "birthday", "color"
   ],
@@ -23,8 +32,8 @@ new Vue({
   data: {
     filename: "",
     persons: [],
-    tableColumns: TableOptions["columns"],
-    tableOptions: TableOptions["options"]
+    tableColumns: tableOptions["columns"],
+    tableOptions: tableOptions["options"]
   },
   http: {
     root: "/root",
