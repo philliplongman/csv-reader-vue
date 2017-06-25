@@ -3,11 +3,6 @@ html
   head
     title CSV Reader
     link rel="stylesheet" href="stylesheets/app.css"
-    script src="vendor/javascripts/jquery-3.2.1.min.js"
-    script src="vendor/javascripts/jquery.metadata.js"
-    script src="vendor/javascripts/jquery.tablesorter.min.js"
-    script src="javascripts/vendor.bundle.js"
-
 
   body
     main
@@ -20,22 +15,25 @@ html
           label.button for="file" Browse
           input#file name="file" type="file" @change="changeFile"
       
-      table.tablesorter ref="table"
-        thead
-          tr
-            th: span Last name
-            th: span First name
-            th: span Middle initial
-            th: span Pet
-            th: span Birthday
-            th: span Favorite color
-        tbody
-          tr v-for="person in persons"
-            th = "{{ person.last_name }}"
-            th = "{{ person.first_name }}"
-            th = "{{ person.middle_initial }}"
-            th :class="person.pet | downcase" = "{{ person.pet }}"
-            th = "{{ person.birthday }}"
-            th = "{{ person.color }}"
-
+      / table ref="table"
+      /   thead
+      /     tr
+      /       th: span Last name
+      /       th: span First name
+      /       th: span Middle initial
+      /       th: span Pet
+      /       th: span Birthday
+      /       th: span Favorite color
+      /   tbody
+      /     tr v-for="person in persons"
+      /       th = "{{ person.last_name }}"
+      /       th = "{{ person.first_name }}"
+      /       th = "{{ person.middle_initial }}"
+      /       th :class="person.pet | downcase" = "{{ person.pet }}"
+      /       th = "{{ person.birthday }}"
+      /       th = "{{ person.color }}"
+      
+      v-client-table :data="persons" :columns="tableColumns" :options="tableOptions"
+      
+    script src="javascripts/vendor.bundle.js"
     script src="javascripts/app.js"

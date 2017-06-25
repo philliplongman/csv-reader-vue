@@ -1,8 +1,28 @@
+const TableOptions = {
+  columns: [
+    "last_name", "first_name", "middle_initial", "pet", "birthday", "color"
+  ],
+  options: {
+    filterable: false,
+    perPage: 100,
+    skin: "",
+    sortIcon: {
+      base: "",
+      down: "active descending",
+      up:   "active ascending"
+    },
+    texts: { noResults:'No records' }
+  }
+}
+
+
 new Vue({
   el: "main",
   data: {
     filename: "",
-    persons: []
+    persons: [],
+    tableColumns: TableOptions["columns"],
+    tableOptions: TableOptions["options"]
   },
   http: {
     root: "/root",
@@ -31,22 +51,6 @@ new Vue({
     updateData: function (response) {
       this.filename = response.body.filename
       this.persons = response.body.people
-      this.updateTableSort()
     },
-
-    updateTableSort: function () {
-      // update tablesorter data with the new rows
-      // has to be a jQuery object
-      let table = $(this.$refs.table)
-      table.trigger("update")
-      // the update function has a delay of 1 ms, so a timeout of 2 ms
-      // must be set before triggering a new sort to prevent a conflict
-      setTimeout( function () {
-        let sort = [[0, 0]]
-        table.trigger("sorton", [sort])
-      }, 2)
-    }
   },
 })
-
-$(".tablesorter").tablesorter()
