@@ -1,4 +1,5 @@
-const path = require("path")
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
   module: {
@@ -15,10 +16,17 @@ const config = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
   resolve: {
     alias: { "vue$": "vue/dist/vue.esm.js" }
-  },
-  watch: true
+  }
 }
 
 module.exports = config
