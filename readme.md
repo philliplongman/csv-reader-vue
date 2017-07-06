@@ -2,6 +2,8 @@
 
 A full-stack technical challenge I took too seriously, with asynchronous Vue.js on the front end and Sinatra on the back.
 
+([Also with an Elixir Phoenix back end](https://github.com/philliplongman/csv-reader-elixir))
+
 ### Requirement summary:
 
 * Write a web app that will accept CSV files in three slightly different formats and display them as a sortable table.
@@ -9,9 +11,9 @@ A full-stack technical challenge I took too seriously, with asynchronous Vue.js 
 [Try it here](https://csv-reader.herokuapp.com/) with one of the test files below.
 
 Test files (right click then select, "Save link as"):
-* <a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/comma.txt">Comma separated file</a>
-* <a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/pipe.txt">Pipe separated file</a>
-* <a href="https://github.com/philliplongman/fullstack-challenge-ruby/raw/master/spec/fixtures/space.txt">Space separated file</a>
+* [Comma separated file](https://raw.githubusercontent.com/philliplongman/csv-reader-vue/master/spec/fixtures/comma.txt)
+* [Pipe separated file](https://raw.githubusercontent.com/philliplongman/csv-reader-vue/master/spec/fixtures/pipe.txt)
+* [Space separated file](https://raw.githubusercontent.com/philliplongman/csv-reader-vue/master/spec/fixtures/space.txt)
 
 ## Design decisions
 
